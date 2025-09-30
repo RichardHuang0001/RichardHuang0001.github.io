@@ -21,6 +21,9 @@
   <!-- jQuery库 - 用于页面交互效果 -->
   <script src="js/jquery-2.1.3.min.js"> </script>
 
+  <!-- 👉 语言切换功能JS文件 -->
+  <script src="lang-switcher.js"></script>
+
   <!-- ==================== 自定义样式 ==================== -->
   <style>
     /* 带日期的列表项样式 - 用于经历和奖项部分 */
@@ -35,6 +38,37 @@
         left: 0;
         top: 0;
         white-space: nowrap;
+    }
+    
+    /* 👉 语言切换按钮样式 */
+    .lang-switcher {
+      float: right;
+      margin-left: 20px;
+    }
+    
+    .lang-btn {
+      background: transparent;
+      border: 1.5px solid #828282;
+      color: #828282;
+      padding: 6px 14px;
+      margin: 0 4px;
+      cursor: pointer;
+      font-size: 13px;
+      border-radius: 4px;
+      transition: all 0.3s ease;
+      font-weight: 500;
+    }
+    
+    .lang-btn:hover {
+      background: #828282;
+      color: white;
+      transform: translateY(-1px);
+    }
+    
+    .lang-btn.active {
+      background: #2a7ae2;
+      border-color: #2a7ae2;
+      color: white;
     }
   </style>
 </head>
@@ -56,10 +90,16 @@
 
       <!-- 导航菜单链接 - 可根据需要添加或删除 -->
   <div class="trigger">
-        <a class="page-link" href="#bio"><b>About</b></a>              <!-- 跳转到关于部分 -->
-        <a class="page-link" href="#timeline"><b>Experiences</b></a>   <!-- 跳转到经历部分 -->
-        <a class="page-link" href="#projects"><b>Projects</b></a>      <!-- 跳转到项目部分 -->
-        <a class="page-link" href="#awards"><b>Honors & Awards</b></a> <!-- 跳转到荣誉部分 -->
+        <a class="page-link" href="#bio"><b data-i18n="nav_about">About</b></a>              <!-- 跳转到关于部分 -->
+        <a class="page-link" href="#timeline"><b data-i18n="nav_experiences">Experiences</b></a>   <!-- 跳转到经历部分 -->
+        <a class="page-link" href="#projects"><b data-i18n="nav_projects">Projects</b></a>      <!-- 跳转到项目部分 -->
+        <a class="page-link" href="#awards"><b data-i18n="nav_awards">Honors & Awards</b></a> <!-- 跳转到荣誉部分 -->
+        
+        <!-- 👉 语言切换按钮 -->
+        <div class="lang-switcher">
+          <button id="lang-en" class="lang-btn active" onclick="switchToEnglish()">EN</button>
+          <button id="lang-zh" class="lang-btn" onclick="switchToChinese()">中文</button>
+        </div>
   </div>
 </nav>
   </div>
@@ -72,16 +112,16 @@
     <!-- 左侧：个人照片 -->
       <div id="my-pic" class="profile-col profile-col-1">
       <!-- 修改src属性可更换照片，建议使用正方形照片 -->
-      <img id="profile-avatar" src="images/myself.jpg" alt="Wei Huang" class="circle-img border-dark"/>
+      <img id="profile-avatar" src="images/hw_ID_photo.jpg" alt="Wei Huang" class="circle-img border-dark"/>
       </div>
     
     <!-- 中间：姓名、学校、邮箱 - 可修改 -->
       <div id="my-contact" class="profile-col profile-col-2">
         <div id="my-name" class="text-grey-dark">
-        Wei Huang (黄维)<br>  <!-- 修改为您的姓名 -->
+        <span data-i18n="name">Wei Huang (黄维)</span><br>  <!-- 修改为您的姓名 -->
         </div>
         <div id="my-title" class="text-grey">
-        The Chinese University of Hong Kong  <!-- 修改为您的机构 -->
+        <span data-i18n="institution">The Chinese University of Hong Kong</span>  <!-- 修改为您的机构 -->
         </div>
         <div id="my-email" class="text-grey-light">
         huangwei8361@qq.com 
@@ -130,16 +170,16 @@
 <div id="bio" class="bio">
   <h1 class="md-heading text-left">
     <i class="fa fa-id-card" aria-hidden="true"></i>
-    About
+    <span data-i18n="heading_about">About</span>
   </h1>
   <div class="bio-body" style="overflow:hidden;">
     <!-- 个人简介 - 修改为您自己的介绍 -->
     <p>
-      I am a final-year undergraduate student at <a href="https://www.hitsz.edu.cn/index.html" target="_blank">Harbin Institute of Technology, Shenzhen</a>, majoring in Computer Science and Technology. 
+      <span data-i18n="bio_intro">I am a final-year undergraduate student at <a href="https://www.hitsz.edu.cn/index.html" target="_blank">Harbin Institute of Technology, Shenzhen</a>, majoring in Computer Science and Technology.</span>
       <br><br>
-      I am currently working as an AI Agents R&D Intern at <a href="https://www.tencent.com/" target="_blank">Tencent CSIG</a>, where I focus on Multi-Agent systems, RAG optimization, and LLM-based applications.
+      <span data-i18n="bio_current">I am currently working as an AI Agents R&D Intern at <a href="https://www.tencent.com/" target="_blank">Tencent CSIG</a>, where I focus on Multi-Agent systems, RAG optimization, and LLM-based applications.</span>
       <br><br>
-      My research interests include <b>Deep Learning</b>, <b>Computer Vision</b>, <b>Multi-modal Models</b>, and <b>Video Understanding</b>. I am particularly interested in open-vocabulary video action recognition and VR/AR applications.
+      <span data-i18n="bio_interests">My research interests include <b>Deep Learning</b>, <b>Computer Vision</b>, <b>Multi-modal Models</b>, and <b>Video Understanding</b>. I am particularly interested in open-vocabulary video action recognition and VR/AR applications.</span>
       <br>
     </p>
 
@@ -147,16 +187,16 @@
     <div style="width: 50%; float:left">
 			<h3>
 		    <i class="fa fa-star" aria-hidden="true"></i>
-        <strong>Research Interests</strong>
+        <strong data-i18n="heading_research_interests">Research Interests</strong>
 			</h3>
       <!-- 研究兴趣列表 - 可添加或删除 -->
       <ul>
-        <li><b>Deep Learning & Computer Vision</b></li>
-        <li><b>Multi-modal Models (Vision-Language)</b></li>
-        <li><b>Video Understanding & Action Recognition</b></li>
-        <li><b>VR/AR & Human-Computer Interaction</b></li>
-        <li><b>Multi-Agent Systems & RAG</b></li>
-        <li><b>Natural Language Processing</b></li>
+        <li><b data-i18n="interest_1">Deep Learning & Computer Vision</b></li>
+        <li><b data-i18n="interest_2">Multi-modal Models (Vision-Language)</b></li>
+        <li><b data-i18n="interest_3">Video Understanding & Action Recognition</b></li>
+        <li><b data-i18n="interest_4">VR/AR & Human-Computer Interaction</b></li>
+        <li><b data-i18n="interest_5">Multi-Agent Systems & RAG</b></li>
+        <li><b data-i18n="interest_6">Natural Language Processing</b></li>
       </ul>
     </div>
 
@@ -164,24 +204,24 @@
     <div style="width: 50%; float:right">
 			<h3>
 				<i class="fa fa-graduation-cap" aria-hidden="true"></i>
-				<strong>Education</strong>
+				<strong data-i18n="heading_education">Education</strong>
 			</h3>
       <!-- 教育信息 - 修改为您的教育背景 -->
-      <b>Harbin Institute of Technology, Shenzhen</b><br>
+      <b data-i18n="edu_school">Harbin Institute of Technology, Shenzhen</b><br>
 			<ul>
-        <li>B.Eng. in Computer Science and Technology</li>
-        <li>Sept. 2021 - July 2025 (Expected)</li>
-        <li>GPA: 87/100</li>
+        <li data-i18n="edu_degree">B.Eng. in Computer Science and Technology</li>
+        <li data-i18n="edu_period">Sept. 2021 - July 2025 (Expected)</li>
+        <li data-i18n="edu_gpa">GPA: 87/100</li>
       </ul>
       
       <!-- 语言能力 -->
       <h3>
         <i class="fa fa-language" aria-hidden="true"></i>
-        <strong>Languages</strong>
+        <strong data-i18n="heading_languages">Languages</strong>
       </h3>
       <ul>
-        <li>Chinese (Native)</li>
-        <li>English (IELTS: 7.5)</li>  <!-- 修改为您的语言成绩 -->
+        <li data-i18n="lang_chinese">Chinese (Native)</li>
+        <li data-i18n="lang_english">English (IELTS: 7.5)</li>  <!-- 修改为您的语言成绩 -->
       </ul>
     </div>
   </div>
@@ -191,7 +231,7 @@
   <div id="timeline" class="timeline-brief">
     <h1 class="md-heading text-left">
       <i class="fa fa-tasks" aria-hidden="true"></i>
-      Experiences
+      <span data-i18n="heading_experiences">Experiences</span>
     </h1>
   
     <div class="timeline-body">
@@ -250,7 +290,7 @@
 <div id="projects" class="publications">
   <h1 class="md-heading text-left">
     <i class="fa fa-code" aria-hidden="true"></i>
-    Research & Projects
+    <span data-i18n="heading_projects">Research & Projects</span>
   </h1>
 
   <div class="pub-list">
@@ -386,36 +426,36 @@
 <div id="awards" class="awards">
   <h1 class="md-heading text-left">
     <i class="fa fa-trophy" aria-hidden="true"></i>
-    Honors & Awards
+    <span data-i18n="heading_awards">Honors & Awards</span>
   </h1>
   
   <div class="award-body">
     <!-- 学术奖项 -->
     <h3>
       <i class="fa fa-star" aria-hidden="true"></i>
-      <strong>Academic Awards</strong>
+      <strong data-i18n="heading_academic_awards">Academic Awards</strong>
     </h3>
     <ul>
       <!-- 奖项列表 - data-date属性中填写日期，后面填写奖项名称 -->
-      <li class="indented" data-date="[Dec. 2023]">Second Prize (Top 10%), Huawei Cloud & HIT APP Design Contest</li>
-      <li class="indented" data-date="[Sept. 2023]">University-level "Excellent League Cadre"</li>
-      <li class="indented" data-date="[Sept. 2022]">University-level "Excellent League Member"</li>
+      <li class="indented" data-date="[Dec. 2023]" data-i18n="award1">Second Prize (Top 10%), Huawei Cloud & HIT APP Design Contest</li>
+      <li class="indented" data-date="[Sept. 2023]" data-i18n="award2">University-level "Excellent League Cadre"</li>
+      <li class="indented" data-date="[Sept. 2022]" data-i18n="award3">University-level "Excellent League Member"</li>
       <!-- 添加更多奖项，复制上面的li标签 -->
     </ul>
     
     <!-- 领导力经历 -->
     <h3>
       <i class="fa fa-users" aria-hidden="true"></i>
-      <strong>Leadership</strong>
+      <strong data-i18n="heading_leadership">Leadership</strong>
     </h3>
     <ul>
       <li class="indented" data-date="[Nov. 2022 - Nov. 2023]">
-        <b>President, University-Level Student Club</b>
+        <b data-i18n="leader1_title">President, University-Level Student Club</b>
         <ul style="margin-top:5px;">
-          <li>Managed and coordinated affairs for a club of approximately 300 members</li>
-          <li>Led collaborations with university departments and managed publicity efforts</li>
-          <li>Organized numerous highly-praised events</li>
-          <li>Led club to win multiple university-level honors, including "Outstanding Student Club"</li>
+          <li data-i18n="leader1_bullet1">Managed and coordinated affairs for a club of approximately 300 members</li>
+          <li data-i18n="leader1_bullet2">Led collaborations with university departments and managed publicity efforts</li>
+          <li data-i18n="leader1_bullet3">Organized numerous highly-praised events</li>
+          <li data-i18n="leader1_bullet4">Led club to win multiple university-level honors, including "Outstanding Student Club"</li>
         </ul>
       </li>
       <!-- 添加更多领导经历，复制上面的li标签 -->
@@ -427,7 +467,7 @@
 <div id="skills" class="bio">
       <h1 class="md-heading text-left">
     <i class="fa fa-cogs" aria-hidden="true"></i>
-    Technical Skills
+    <span data-i18n="heading_skills">Technical Skills</span>
       </h1>  
   
   <div class="bio-body">
@@ -435,7 +475,7 @@
     <div style="width: 50%; float:left">
       <h3>
         <i class="fa fa-code" aria-hidden="true"></i>
-        <strong>Programming Languages</strong>
+        <strong data-i18n="heading_programming">Programming Languages</strong>
       </h3>
       <!-- 编程语言列表 - 可添加或删除 -->
       <ul>
@@ -447,7 +487,7 @@
       
       <h3>
         <i class="fa fa-wrench" aria-hidden="true"></i>
-        <strong>Developer Tools</strong>
+        <strong data-i18n="heading_tools">Developer Tools</strong>
       </h3>
       <!-- 开发工具列表 - 可添加或删除 -->
       <ul>
@@ -462,7 +502,7 @@
     <div style="width: 50%; float:right">
       <h3>
         <i class="fa fa-cubes" aria-hidden="true"></i>
-        <strong>Frameworks & Libraries</strong>
+        <strong data-i18n="heading_frameworks">Frameworks & Libraries</strong>
       </h3>
       <!-- 框架列表 - 可添加或删除 -->
       <ul>
@@ -474,33 +514,33 @@
       
       <h3>
         <i class="fa fa-lightbulb-o" aria-hidden="true"></i>
-        <strong>Technical Fields</strong>
+        <strong data-i18n="heading_fields">Technical Fields</strong>
       </h3>
       <!-- 技术领域列表 - 可添加或删除 -->
       <ul>
-        <li>Deep Learning</li>
-        <li>Computer Vision</li>
-        <li>Natural Language Processing</li>
-        <li>Multi-modal Models</li>
-        <li>Video Understanding</li>
-        <li>RAG & Multi-Agent Systems</li>
+        <li data-i18n="skill_field1">Deep Learning</li>
+        <li data-i18n="skill_field2">Computer Vision</li>
+        <li data-i18n="skill_field3">Natural Language Processing</li>
+        <li data-i18n="skill_field4">Multi-modal Models</li>
+        <li data-i18n="skill_field5">Video Understanding</li>
+        <li data-i18n="skill_field6">RAG & Multi-Agent Systems</li>
     </ul>
-  </div>
-</div>
+          </div>
+          </div>
+        </div>
+	      
       </div>
-
-  </div>
-</div>
+    </div>
 
 <!-- ==================== 页脚 ==================== -->
 <footer class="site-footer">
   <div class="wrapper">
     <p style="text-align:center; color:#828282; font-size:14px;">
-      © 2025 Wei Huang. Last updated: January 2025.  <!-- 修改版权信息和更新日期 -->
+      <span data-i18n="footer">© 2025 Wei Huang. Last updated: January 2025.</span>  <!-- 修改版权信息和更新日期 -->
     </p>
-      </div>
+  </div>
 </footer>
-
+	
 <!-- ==================== JavaScript交互代码 ==================== -->
 <script>
   // 平滑滚动效果 - 点击导航链接时平滑滚动到对应部分
@@ -561,5 +601,5 @@
 - 使用preview.py可以实时预览修改效果
 -->
 
-</body>
+  </body>
 </html><!-- Force rebuild Tue Sep 30 21:12:36 HKT 2025 -->
