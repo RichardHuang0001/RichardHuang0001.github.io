@@ -10,8 +10,8 @@ const translations = {
   en: {
     // 导航栏
     nav_about: "About",
-    nav_experiences: "Experiences",
-    nav_projects: "Projects",
+    nav_experiences: "Experience",
+    nav_projects: "Research",
     nav_awards: "Honors & Awards",
     
     // 个人信息区
@@ -23,6 +23,7 @@ const translations = {
     bio_intro: "I am a CS student focusing on AI. I received my B.Eng in Computer Science from <a href='https://www.hitsz.edu.cn/index.html' target='_blank'>HITSZ</a> and I am currently pursuing an Master degree in Computer Science at <a href='https://www.cuhk.edu.hk/' target='_blank'>CUHK</a>.",
     bio_current: "I previously worked as an intern in the AI Agents R&D team at <a href='https://www.tencent.com/' target='_blank'>Tencent Technology</a>.",
     // bio_interests: "My research interests include multimodal action recognition, multimodal learning, AI for Chemistry, and AI Agents application development.",
+    cv_link: "<a href='hw_cv.pdf' target='_blank'>Click to view my CV</a>",
     
     heading_research_interests: "Research Interests",
     interest_1: " Multimodal Learning",
@@ -48,30 +49,26 @@ const translations = {
     // Experiences 部分
     heading_experiences: "Experiences",
     exp1_title: "AI Agents R&D Intern",
-    exp1_company: "Tencent, Cloud & Smart Industries Group (CSIG)",
-    exp1_period: "Apr. 2025 - Present",
-    exp1_desc1: "Engaged in end-to-end development of large-scale internal Multi-Agent systems",
-    exp1_bullet1: "Engineered Agent services using ByteDance's Eino framework (Go) with LLM + MCP + RAG architecture",
-    exp1_bullet2: "Developed comprehensive evaluation framework with LLM-as-a-judge methodologies",
-    exp1_bullet3: "Contributed to open-source model deployment, performance evaluation, and RAG optimization",
+    exp1_company: "Tencent, CSIG",
+    exp1_period: "Apr. 2025 - Sept. 2025",
+    exp1_desc1: "Deeply involved in large-scale Multi-Agent system development, integrating LLM + RAG + MCP",
+    exp1_bullet1: "Backend: Go + ByteDance's open-source Eino; integrated Langfuse distributed tracing; worked with Kafka, Redis, databases, and RPC",
+    exp1_bullet2: "LLM: Owned deployment and tuning of open-source LLMs and rerankers (via SGLang), built an LLM evaluation framework, and optimized RAG document chunking",
+    exp1_bullet3: "Assistants: Drove an intelligent operations assistant from design to implementation",
+    exp1_bullet4: "Product: Co-designed the Agent system with Tencent Cloud PMs; completed internal training on AI for enterprise platform design",
     exp1_location: "Location: Shenzhen, China",
     
-    exp2_title: "IT Department Intern",
-    exp2_company: "China Construction Bank, Qingyuan Branch",
-    exp2_period: "Jan. 2024 - Mar. 2024",
-    exp2_bullet1: "Participated in daily IT operations and maintenance tasks",
-    exp2_bullet2: "Gained practical insights into technical infrastructure of major financial institutions",
-    exp2_location: "Location: Qingyuan, China",
+    
     
     // Projects 部分
     heading_projects: "Research & Projects",
     proj1_title: "Multi-modal Open-Vocabulary Video Action Recognition",
-    proj1_type: "Research Project",
-    proj1_status: "Ongoing Research",
+    proj1_type: "Research Project,Supervised by Prof. Bin Chen,HITSZ",
+    proj1_status: "MLLM Research",
     proj1_desc: "• Adapted pre-trained CLIP model for video action recognition<br>• Enhanced fine-grained perception and temporal dynamics optimization<br>• Reproduced SOTA papers: FROSTER, OpenVCLIP, AWT<br>• Technologies: PyTorch, SlowFast, MMAction2, ViT architectures",
     
     proj2_title: "Interactive GUI Element Prediction and Cybersickness Detection in VR",
-    proj2_type: "Research Project",
+    proj2_type: "Research Project,Supervised by Prof. Cuiyun Gao,HITSZ",
     proj2_status: "VR/AR Research",
     proj2_desc: "• Developed Python scripts for VR user data acquisition and analysis<br>• Implemented baseline models for GUI element prediction<br>• Domain adaptation of SOTA models (OmniParser, CogAgent) for VR tasks<br>• Organized offline user studies for cybersickness detection",
     
@@ -121,8 +118,8 @@ const translations = {
   zh: {
     // 导航栏
     nav_about: "关于",
-    nav_experiences: "经历",
-    nav_projects: "项目",
+    nav_experiences: "实习经历",
+    nav_projects: "研究项目",
     nav_awards: "荣誉奖项",
     
     // 个人信息区
@@ -134,6 +131,7 @@ const translations = {
     bio_intro: "我是一名深耕计算机与人工智能领域的学生，本科毕业于<a href='https://www.hitsz.edu.cn/index.html' target='_blank'>哈尔滨工业大学（深圳）</a>计算机科学与技术专业，目前在<a href='https://www.cuhk.edu.hk/' target='_blank'>香港中文大学</a>计算机科学专业攻读硕士。",
     bio_current: "曾在<a href='https://www.tencent.com/' target='_blank'>腾讯</a>的AI Agents研发组实习工作。",
     // bio_interests: "研究兴趣包括多模态动作识别、多模态学习、AI for Chem及AI Agents应用开发。",
+    cv_link: "<a href='hw_cv_Zh.pdf' target='_blank'>点击查看我的简历</a>",
     
     heading_research_interests: "研究兴趣",
     interest_1: "多模态学习",
@@ -159,26 +157,22 @@ const translations = {
     // Experiences 部分
     heading_experiences: "实习经历",
     exp1_title: "AI Agents研发实习生",
-    exp1_company: "腾讯 云与智慧产业事业群（CSIG）",
-    exp1_period: "2025年4月 - 至今",
-    exp1_desc1: "参与大规模内部多智能体系统的端到端开发",
-    exp1_bullet1: "使用字节跳动Eino框架（Go）构建Agent服务，基于LLM + MCP + RAG架构",
-    exp1_bullet2: "开发结合客观指标和LLM评判的综合评估框架",
-    exp1_bullet3: "负责开源模型部署、性能评估和RAG优化",
+    exp1_company: "腾讯 云与智慧产业事业群",
+    exp1_period: "2025年4月 - 2025年9月",
+    exp1_desc1: "深度参与大型 Multi-Agent 系统研发，整合 LLM + RAG + MCP 能力",
+    exp1_bullet1: "后端技术：Go + 字节跳动开源 Eino，接入 Langfuse 分布式追踪，覆盖 Kafka、Redis、数据库、RPC 等",
+    exp1_bullet2: "大模型：负责开源大模型与重排序器部署与调优（基于 SGLang 优化），构建 LLM Eval 评测体系，优化 RAG 文档向量块",
+    exp1_bullet3: "智能助手：主导智能运营助手方案设计与落地",
+    exp1_bullet4: "产品：与腾讯云产品团队协作完成 Agent 系统产品设计，并参加企业中台 AI 化产品培训",
     exp1_location: "地点：中国深圳",
     
-    exp2_title: "信息技术部实习生",
-    exp2_company: "中国建设银行清远分行",
-    exp2_period: "2024年1月 - 2024年3月",
-    exp2_bullet1: "参与日常IT运维工作",
-    exp2_bullet2: "深入了解大型金融机构的技术基础设施",
-    exp2_location: "地点：中国清远",
+    
     
     // Projects 部分
     heading_projects: "研究与项目",
     proj1_title: "多模态开放词汇视频动作识别",
     proj1_type: "研究项目",
-    proj1_status: "进行中",
+    proj1_status: "多模态研究",
     proj1_desc: "• 改进预训练CLIP模型用于视频动作识别<br>• 增强细粒度感知和时序动态优化<br>• 复现SOTA论文：FROSTER、OpenVCLIP、AWT<br>• 技术栈：PyTorch、SlowFast、MMAction2、ViT架构",
     
     proj2_title: "VR交互式GUI元素预测与晕动症检测",
