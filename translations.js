@@ -111,7 +111,7 @@ const translations = {
     skill_field6: "RAG & Multi-Agent Systems",
     
     // 页脚
-    footer: "© 2025 Wei Huang. Last updated: January 2025."
+    footer: "© 2025 Wei Huang. Last updated: September 2025."
   },
   
   // ==================== 中文翻译 ====================
@@ -219,7 +219,7 @@ const translations = {
     skill_field6: "RAG与多智能体系统",
     
     // 页脚
-    footer: "© 2025 黄维. 最后更新：2025年1月"
+    footer: "© 2025 黄维. 最后更新：2025年9月"
   }
 };
 
